@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            background-color:gray;
+            border-radius: 5px;
+            width:400px;
+            text-align: center;
+        }
+        .total-side{
+            border-radius: 5px;
+            border: 1px dotted blanchedalmond;
+            margin: 20px;
+            padding: 10px;
+            
+        }
+        .counter-side{
+            border-radius: 5px;
+            border: 2px dotted blanchedalmond;
+          
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Simple Cart</h3>
+        <div class="counter-side">
+            <div >
+                <h3 id="product-price">67</h3>
+                <button id="decrease">-</button>
+                <!-- <h3 id="price" style="display: inline-block; padding:5px">$67</h3> -->
+                <input type="text" name="" value="5" id="counter" style="display: inline-block; padding:5px">
+                <button id="increase">+</button>
+               
+            </div>
+        </div>
+        <div class="total-side"><p>Total Cost</p>
+            <h3 id="price-cost">0</h3>
+        </div>
+    </div>
+
+    <script>
+        const increaseBtn = document.querySelector('#increase');
+        const decreaseBtn = document.querySelector('#decrease');
+        const productCounter = document.querySelector('#counter');
+        const productPrice = document.querySelector('#product-price');
+        const priceCost = document.querySelector('#price-cost');
+      
+
+        increaseBtn.addEventListener('click',function(){
+            const increaseValue = (parseInt(productCounter.value)) + 1;
+            productCounter.value = increaseValue;
+
+            const productPriceNumber = parseInt(productPrice.innerHTML) ;
+            const productCounterNumber = parseInt(productCounter.value);
+            const total = productPriceNumber * productCounterNumber;
+            priceCost.innerText ="$" + total;
+        })
+
+        decreaseBtn.addEventListener('click',function(){
+            const decreaseValue = (parseInt(productCounter.value)) - 1; 
+            productCounter.value = decreaseValue;
+
+            const productPriceNumber = parseInt(productPrice.innerHTML) ;
+            const productCounterNumber = parseInt(productCounter.value);
+            const total = productPriceNumber * productCounterNumber;
+            priceCost.innerText ="$" + total;
+        })
+
+        // const productPriceNumber = parseInt(productPrice.innerHTML) ;
+        // const productCounterNumber = parseInt(productCounter.value);
+        // const total = productPriceNumber * productCounterNumber;
+        // console.log(total)
+
+    </script>
+</body>
+</html>
